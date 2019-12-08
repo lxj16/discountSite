@@ -1,2 +1,2 @@
 # Discount sites
-# A project to practice django.
+A project to practice django.
