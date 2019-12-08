@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from . import views
-from . import forms
+from .forms import signUpForm
 from .models import User
 
 # Create your views here.
@@ -21,20 +21,24 @@ def login(request):
 
 
 def signup(request):
+    form = signUpForm(request.POST or None)
 
-    form = forms.signUpForm()
-    if request == 'POST':
-        form = forms.signUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('user_name')
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
-            new_user = User(name=username, password=password, email=email)
-            new_user.save()
-            return redirect('home')
-        else:
-            form = forms.signUpForm()
+    if request.method == 'POST' and form.is_valid():
+        new_user = form.save()
+        return HttpResponseRedirect('/')
+    # form = forms.signUpForm()
+    # if request == 'POST':
+    #     form = forms.signUpForm(request.POST)
+    #     if form.is_valid():
+
+    #         user_name = form.cleaned_data.get('user_name')
+    #         email = form.cleaned_data.get('email')
+    #         password = form.cleaned_data.get('password')
+    #         new_user = User(name=user_name, password=password, email=email)
+    #         new_user.save()
+
+    #     else:
+    #         form = forms.signUpForm()
     return render(request, 'discountsApp/signUp.html', {'form': form})
 
 

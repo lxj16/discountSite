@@ -1,13 +1,14 @@
 from django import forms
 from django.core import validators
 from . import models
+from django.forms import ModelForm
 
 
-class signUpForm(forms.Form):
-    user_name = forms.CharField()
+class signUpForm(ModelForm):
+    name = forms.CharField()
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = models.User
-        fields = ('user_name', 'email', 'password')
+        fields = ('name', 'email', 'password')
