@@ -8,6 +8,10 @@ from .models import User
 # Create your views here.
 
 
+def main_page(request):
+    return render(request, 'discountsApp/mainPage.html')
+
+
 def index(request):
     return render(request, 'discountsApp/index.html')
 

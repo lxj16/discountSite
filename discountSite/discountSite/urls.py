@@ -20,6 +20,6 @@ from discountsApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.main_page),
     path('discounts/', include('discountsApp.urls')),
 ]

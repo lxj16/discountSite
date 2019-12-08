@@ -7,4 +7,3 @@ urlpatterns = [
     path('signup/', views.signup),
     path('forgotpassword/', views.forgotPassword)
 ]
-

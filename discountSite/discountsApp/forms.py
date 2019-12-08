@@ -10,4 +10,4 @@ class signUpForm(forms.Form):
 
     class Meta:
         model = models.User
-        fields = ('name', 'email', 'password', 'country')
+        fields = ('user_name', 'email', 'password')
