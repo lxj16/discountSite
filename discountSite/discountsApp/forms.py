@@ -12,3 +12,6 @@ class signUpForm(ModelForm):
     class Meta:
         model = models.User
         fields = ('name', 'email', 'password')
+
+
+# try login match

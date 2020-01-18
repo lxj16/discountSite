@@ -43,4 +43,4 @@ def signup(request):
 
 
 def forgotPassword(request):
-    return render(request, 'discountsApp/forgorPassword.html')
+    return render(request, 'discountsApp/forgotPassword.html')
